@@ -1,4 +1,8 @@
 import { useState } from "react";
+import { toast } from "sonner";
+import { validateEmail } from "../../helpers/validator.helpers";
+
+
 
 const Register = () => {
 
@@ -10,7 +14,28 @@ const [ password, setPassword] = useState({});
 const handleSubmit = (e) =>
  {e.preventDefault();
 
-console.log({ name, lastName, email, password})
+if (!name){
+    return toast.error('El nombre es obligatorio')
+}
+if (!lastName){
+    return toast.error('El apellido es obligatorio')
+}
+if (!email){
+    return toast.error('El Email es obligatorio')
+}
+if (!validateEmail(email)){
+    return toast.error('El email no es valido')
+}
+if (!password){
+    return toast.error('La contraseña es obligatorio')
+}
+
+if (password.length < 6){
+    return toast.error('La contraseña debe tener mas de 6 caracteres')
+}
+
+//registrar al uruario en la base de datos 
+
 
 
  }
