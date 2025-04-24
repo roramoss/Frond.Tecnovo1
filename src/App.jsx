@@ -22,10 +22,13 @@ const App = () => {
         <Route path="Tienda" element ={<StorePage/>}/>
         <Route path="Nosotros" element ={<AboutPage/>}/>
          </Route>
+         
          <Route path="/auth" element={<AuthLayout/>}>
          <Route path="Login" element={<Login/>} />
          <Route path="Registro" element={<Register/>} />
          </Route>
+         
+
          <Route>
           <Route path="/admin"  element={ <AdmiLayout/>}>
           <Route index element ={ <DashboardPage/>}/>

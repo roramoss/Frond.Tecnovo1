@@ -1,5 +1,22 @@
+import Carrito from "./Carrito/carrito.jsx";
+
 const StorePage = () => {
-    return ( <div> Store page</div> );
+    return ( 
+
+<>
+
+
+<h1>Store page</h1>
+
+<Carrito/>
+
+</>
+
+
+
+
+
+     );
 }
  
 export default StorePage;
