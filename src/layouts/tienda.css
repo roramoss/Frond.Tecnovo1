@@ -2,7 +2,7 @@
 .icon-cart {
 	width: 80px;
 	height: 60px;
-	stroke: #f0f0f0;
+	stroke: #f8f8f8;
 }
 
 .icon-cart:hover {
@@ -26,11 +26,10 @@ img {
 	top: 55%;
 	right: 0;
 
-	background-color: #ffffff;
+	background-color: #fff9f9;
 	color: #000000;
 	width: 30px;
 	height: 30px;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -41,16 +40,43 @@ img {
 	font-size: 12px;
 }
 
+
+
 .container-cart-products {
+  position: absolute;
+  top: 60px; /* Ajustado para estar más cerca del icono */
+  right: 0;
+  background-color: #fff; /* Fondo blanco para un look moderno y limpio */
+  width: 320px; /* Un ancho más compacto, común en diseños modernos */
+  z-index: 3;
+  color: #000000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más sutil pero definida */
+  border-radius: 12px; /* Bordes más redondeados para un toque suave */
+  overflow: hidden; /* Para que los bordes redondeados funcionen bien con el contenido */
+  
+
+ 
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.container-cart-products.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+
+/* .container-cart-products {
 	position: absolute;
 	top: 90px;
 	right: 0;
-	background-color: #000000;
+	background-color: #b9b9b9;
 	width: 500px;
 	z-index: 3;
 	box-shadow: 0 10px 20px rgba(59, 42, 42, 0.2);
 	border-radius: 10px;
-}
+} */
 
 .cart-product {
 	display: flex;
@@ -136,7 +162,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tres columnas responsivas */
   gap: 120px; /* Espacio entre elementos */
-  background: linear-gradient(105deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8)); /* Gradiente moderno */
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)); /* Gradiente moderno */
   padding: 80px; /* Espaciado interno */
 }
 
@@ -147,9 +173,10 @@ body {
 
 
 .item {
-
-  
-  background-color: rgb(0, 0, 0); /* Fondo blanco para cada producto */
+border:  solid 1px black;
+margin: 3px;
+  color: #000000;
+  background-color: rgb(255, 255, 255); /* Fondo blanco para cada producto */
   border-radius: 10px; /* Bordes redondeados */
   overflow: hidden; /* Para que el contenido no sobresalga */
   transition: transform 0.3s; /* Suavizar la animación */
@@ -176,6 +203,7 @@ figure {
   justify-content: center;
   height: 350px; /* Ajustá este valor según el alto deseado */
   overflow: hidden;
+  border: 2px;
 }
 
 figure img {
@@ -197,7 +225,7 @@ figure img {
 .price {
   font-size: 1.2rem; /* Tamaño de fuente responsivo */
   font-weight: bold; /* Negrita para destacar el precio */
-  color: rgb(219, 219, 219); /* Color del texto */
+  color: rgb(0, 0, 0); /* Color del texto */
 }
 
 .info-product button {
@@ -253,10 +281,6 @@ figure img {
 .btn-clear-all:hover {
     background-color: #333;
 }
-
-
-
-
 
 
 

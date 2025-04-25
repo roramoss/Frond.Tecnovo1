@@ -28,9 +28,9 @@ alt="React Bootstrap logo"
 
 </ul>
 </div>
-    <main className="bg-red-100  min-h-screen  flex items-center justify-center"> 
-
-
+    {/* <main className="bg-black-100  min-h-screen  flex items-center justify-center">  */}
+    {/* <main className="min-h-screen: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #eaeaea, #c9c9c9);"> */}
+    <main className="min-h-screen: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg,rgb(0, 0, 0),rgb(20, 18, 18));">
     <Outlet/> 
 
 

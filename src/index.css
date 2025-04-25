@@ -121,10 +121,10 @@
   
     }
     .produ2{
-      background-color: rgb(190, 121, 121);
+      background-color: rgb(253, 253, 253);
     }
     .produ3 {
-      background: linear-gradient(105deg, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.8)); /* Gradiente moderno */
+      background: linear-gradient(105deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)); /* Gradiente moderno */
       position: relative;
       display: grid;
       grid-template-columns: 1fr; /* Coloca los elementos en una sola columna */
@@ -132,12 +132,12 @@
       justify-items: center; /* Centra horizontalmente */
       margin: 0;
       gap: 220px; /* Espacio entre elementos */
-      
+      font-size: x-large;
       padding: 30px; /* Espaciado interno */
       color: rgb(12, 10, 10); /* Cambia el color a blanco para mayor contraste */
       text-align: center; /* Centra el texto */
       border-radius: 1px; /* Bordes redondeados */
-      box-shadow: 0 4px 15px rgba(219, 216, 216, 0.5); /* Sombra para profundidad */
+      box-shadow: 0 25px 15px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
   }
   
   .produ3 h1 {

@@ -1,5 +1,6 @@
 import React ,{useState, useEffect} from "react";
 import { CardGroup, Card } from "react-bootstrap";
+import StoreLayout from "../../layouts/Store.layout";
 
 
 const HomePage = () => {
@@ -33,6 +34,7 @@ const HomePage = () => {
     return (  
     
     <>
+    <StoreLayout/>
     
     <section className="section">
       <div className="content">
