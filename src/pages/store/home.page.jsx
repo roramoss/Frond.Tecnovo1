@@ -1,6 +1,8 @@
 import React ,{useState, useEffect} from "react";
 import { CardGroup, Card } from "react-bootstrap";
 import StoreLayout from "../../layouts/Store.layout";
+import Promociones from "../promociones";
+
 
 
 const HomePage = () => {
@@ -10,7 +12,9 @@ const HomePage = () => {
     const images = [
       'src/assets/promocion1.webp',
       'src/assets/promocion2.webp',
-      'src/assets/promocion3.webp'
+      'src/assets/promocion3.webp',
+      'src/assets/promomomo.webp'
+      
     ];
   
     const nextImage = () => {
@@ -34,9 +38,42 @@ const HomePage = () => {
     return (  
     
     <>
+
+
+        
     <StoreLayout/>
+    <Promociones/>
     
-    <section className="section">
+   
+
+
+
+    <section>
+
+    <div className="carousel">
+      <div className="carousel-images">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Image ${index + 1}`}
+            style={{ display: index === currentIndex ? 'block' : 'none' }}
+          />
+        ))}
+      </div>
+      <button className="prev" onClick={prevImage}>❮</button>
+      <button className="next" onClick={nextImage}>❯</button>
+    </div>
+
+    </section>
+
+
+
+
+
+<br /><br /><br /><br /><br />
+
+     <section className="section">
       <div className="content">
         
         
@@ -64,38 +101,13 @@ const HomePage = () => {
       </div>
     </section>
 
-
-    <section>
-
-    <div className="carousel">
-      <div className="carousel-images">
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Image ${index + 1}`}
-            style={{ display: index === currentIndex ? 'block' : 'none' }}
-          />
-        ))}
-      </div>
-      <button className="prev" onClick={prevImage}>❮</button>
-      <button className="next" onClick={nextImage}>❯</button>
-    </div>
-
-    </section>
-
-
-<br /><br /><br /><br /><br />
-
-    
-
     <footer>
-    <div class="footer-section">
+    <div className="footer-section">
       <h4>Sobre Nosotros</h4>
       <p>Somos una empresa dedicada a brindar soluciones tecnológicas personalizadas.</p>
     </div>
 
-    <div class="footer-section">
+    <div className="footer-section">
       <h4>Enlaces Rápidos</h4>
       <ul>
         <li><a href="#">Inicio</a></li>
@@ -104,7 +116,7 @@ const HomePage = () => {
       </ul>
     </div>
 
-    <div class="footer-section">
+    <div className="footer-section">
       <h4>Contacto</h4>
       <ul>
         <li>Email: info@ejemplo.com</li>
