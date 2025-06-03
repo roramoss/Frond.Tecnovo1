@@ -86,7 +86,7 @@ const Promociones = () => {
     <section className="py-5 bg-light">
       <h2 className="text-3xl font-bold text-center mb-4 text-gray-800">
           Nuestras Promociones Especiales
-        </h2> <br /><br /><br /><br />
+        </h2> 
       <div className="container" style={containerStyles}>
         
         {promociones.map((promo) => (

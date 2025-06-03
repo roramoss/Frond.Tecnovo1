@@ -24,9 +24,9 @@ const AdvertisementBanner = ({ title, description, imageUrl, callToActionText, c
           display: flex;
           flex-direction: column;
           width: 300px; /* Ajusta el ancho para que coincida con tus cards de producto */
-          border: 1px solid #e0e0e0;
+          border: 1px solidrgb(155, 34, 34);
           border-radius: 8px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px rgba(250, 250, 250, 0.1);
           background-color: #fff;
           overflow: hidden;
           margin: 15px; /* Espacio entre los banners o entre banners y productos */

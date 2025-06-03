@@ -5,6 +5,7 @@ import Promociones from "../promociones";
 
 
 
+
 const HomePage = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,7 +45,7 @@ const HomePage = () => {
     <StoreLayout/>
     <Promociones/>
     
-   
+  
 
 
 
@@ -69,9 +70,6 @@ const HomePage = () => {
 
 
 
-
-
-<br /><br /><br /><br /><br />
 
      <section className="section">
       <div className="content">

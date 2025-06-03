@@ -24,6 +24,10 @@ const Login = () => {
     return ( 
     
     <>
+
+
+    
+
     
     <div className="max-w-md mx-auto mt-10 bg-white text-black p-20 rounded-xl shadow-lg ring-1 ring-gray-200">
   <h1 className="text-3xl font-semibold uppercase tracking-wide mb-10 text-center">Iniciar Sesión</h1>
