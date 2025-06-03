@@ -54,6 +54,7 @@ if(allProducts.find(item =>item.id ===  product.id)){
                     <p className='price'>${product.price}</p>
                     <button onClick={() => onAddProducts(product)}>
                         Añadir al carrito</button>
+                        <h2>Hasta 6 cuotas sin interes </h2>
                    
                 </div>
 

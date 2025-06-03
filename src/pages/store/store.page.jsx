@@ -1,4 +1,5 @@
 import Carrito from "./Carrito/carrito.jsx";
+import AdvertisementBanner from "./Carrito/publicidad.jsx";
 
 const StorePage = () => {
     return ( 
