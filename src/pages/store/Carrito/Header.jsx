@@ -1,5 +1,8 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState} from 'react';
+import NotFoundPage from '../404';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 
 const CarritoHeader =  ({
@@ -29,7 +32,7 @@ const CarritoHeader =  ({
 	};
 
 
-
+const navigate = useNavigate();
 
 
 
@@ -130,9 +133,12 @@ const CarritoHeader =  ({
 							<button className='btn-clear-all' onClick={onCleanCart}>
 								Vaciar Carrito
 							</button>
-							<button className='btn-clear-all-comprar' >
-								Comprar ahora
-							</button>
+						 
+							
+
+
+							 <button className='btn-clear-all-comprar' onClick={() => navigate('*')}> Comprar ahora</button>
+						
 						</>
 					) : (
 						<p className='cart-empty'>El carrito está vacío</p>

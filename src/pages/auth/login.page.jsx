@@ -1,11 +1,55 @@
 
 import { useEffect } from "react";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import { validateEmail } from '../../helpers/validator.helpers';
+import useAuth from '../../hooks/auth.hook.jsx';
+import axiosClient from '../../services/axios.service.jsx';
+import Footer from "../../components/footer.jsx";
 
 
 
 const Login = () => {
 
-   
+     const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
+
+  const { setAuth } = useAuth();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      return toast.error('El email es obligatorio');
+    }
+
+    if (!validateEmail(email)) {
+      return toast.error('El email no es válido');
+    }
+
+    if (!password) {
+      return toast.error('El password es obligatorio');
+    }
+
+    try {
+      const { data } = await axiosClient.post('/users/login', {
+        email,
+        password,
+      });
+
+      if (data.response === 'success') {
+        localStorage.setItem('token', data.user.access_token);
+        setAuth(data.user);
+        navigate('/');
+      }
+    } catch (error) {
+      console.log(error);
+      return toast.error(error.response.data.message);
+    }
+  };
 
     useEffect(() => {
       document.body.style.backgroundColor = "#f9f9f9"; // color claro, por ejemplo
@@ -62,8 +106,9 @@ const Login = () => {
     </button>
   </form>
 </div>
+<br /><br /><br /><br /><br /> <br /><br /><br /><br />
 
-
+<Footer/>
     
     
     

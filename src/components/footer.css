@@ -1,0 +1,247 @@
+/* src/styles/Footer.css */
+
+.main-footer {
+  background-color: #222; /* Color de fondo oscuro */
+  color: #f0f0f0; /* Color de texto claro */
+  padding: 40px 20px;
+  font-family: 'Montserrat', sans-serif; /* Puedes usar una fuente más moderna si tienes */
+  border-top: 5px solid #007bff; /* Un borde superior con el color principal de tu marca */
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2); /* Sombra sutil en la parte superior */
+  margin: 0%;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+  justify-content: space-around; /* Distribuye el espacio entre las columnas */
+  max-width: 1650px; /* Ancho máximo del contenido del footer */
+  margin: 0 auto; /* Centra el contenedor */
+  gap: 30px; /* Espacio entre las columnas */
+}
+
+.footer-section {
+  flex: 1; /* Cada sección ocupa el mismo espacio inicial */
+  min-width: 220px; /* Ancho mínimo para evitar que se aprieten demasiado */
+  margin-bottom: 2px; /* Espacio inferior para cuando se apilan */
+}
+
+.footer-section h4 { /* Cambiado de h3 a h4 según tu HTML original */
+  color: #007bff; /* Color para los títulos de sección */
+  font-size: 1.3em; /* Ajustado el tamaño de la fuente */
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(0, 123, 255, 0.3); /* Un subrayado sutil */
+  padding-bottom: 8px;
+  text-transform: uppercase; /* Para que los títulos destaquen */
+  letter-spacing: 1px;
+}
+
+/* Estilos para el logo en el footer */
+.footer-logo-link {
+  display: block; /* Para que la imagen ocupe su propia línea */
+  margin-bottom: 15px;
+}
+.footer-logo-link img {
+  max-width: 250px;
+  height: auto;
+  filter: brightness(180%); /* Para que el logo se vea mejor en fondo oscuro */
+}
+
+.footer-section p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: #007bff; /* Cambia de color al pasar el ratón */
+  text-decoration: underline;
+}
+
+/* Estilos para listas de enlaces */
+.footer-section ul {
+  list-style: none; /* Quita los puntos de la lista */
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+/* Estilos específicos para la información de contacto */
+.contact-info ul li a {
+    white-space: nowrap; /* Evita que los números de teléfono o emails se rompan */
+}
+.contact-hours {
+    font-size: 0.9em;
+    opacity: 0.8; /* Menos prominente */
+    margin-top: 15px;
+}
+
+
+/* Estilos para el formulario de Newsletter */
+.newsletter-form {
+  display: flex;
+  margin-top: 15px; /* Espacio para separarlo del texto introductorio */
+  margin-bottom: 25px;
+}
+
+.newsletter-form input[type="email"] {
+  flex-grow: 1;
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 5px 0 0 5px;
+  background-color: #333;
+  color: #f0f0f0;
+  outline: none;
+  font-size: 0.95em;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: #aaa;
+}
+
+.newsletter-form button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.newsletter-form button:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.social-heading {
+    margin-top: 30px; /* Más espacio para separar de newsletter */
+}
+
+/* Estilos para los iconos de Redes Sociales */
+.social-icons {
+  display: flex;
+  gap: 20px; /* Espacio entre iconos */
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #f0f0f0;
+  font-size: 2.2em; /* Tamaño de los iconos */
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 5px; /* Para hacer el área de clic más grande */
+  border-radius: 50%; /* Para que los iconos tengan forma de círculo al pasar el mouse */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+  transform: scale(1.1) translateY(-2px); /* Efecto de crecimiento y leve levantamiento */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo sutil al pasar el mouse */
+}
+
+/* Sección inferior del footer */
+.footer-bottom {
+  border-top: 1px solid #000000;
+  padding-top: 25px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.85em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px; /* Espacio entre el copyright y los logos de pago en pantallas pequeñas */
+}
+
+.footer-bottom .copyright {
+  margin: 0; /* Quita el margen por defecto del p */
+  
+}
+
+.copyright-text{
+    color: #000000;
+}
+
+.payment-methods {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los logos se envuelvan */
+    justify-content: center; /* Centra los logos si se envuelven */
+    gap: 10px; /* Espacio entre los logos */
+}
+
+.payment-methods img {
+  height: 30px; /* Altura de los logos de pago */
+  opacity: 0.7; /* Ligeramente transparentes para no desviar la atención */
+  filter: grayscale(100%) brightness(180%); /* Hace los logos blancos y escala de grises para el tema oscuro */
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.2s ease;
+}
+
+.payment-methods img:hover {
+  opacity: 1; /* Vuelve a opacidad completa */
+  filter: grayscale(0%) brightness(100%); /* Vuelve a color al pasar el ratón */
+  transform: scale(1.05); /* Pequeño zoom al pasar el ratón */
+}
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Apila las columnas en pantallas pequeñas */
+    align-items: center; /* Centra las secciones */
+  }
+
+  .footer-section {
+    text-align: center; /* Centra el texto en las secciones */
+    margin-bottom: 30px;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    min-width: unset; /* Reinicia el min-width */
+  }
+
+  .footer-section h4 {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .footer-section ul {
+    text-align: center; /* Centra los elementos de la lista */
+  }
+
+  .newsletter-form {
+    flex-direction: column; /* Apila input y botón en móviles */
+    align-items: center;
+  }
+  .newsletter-form input[type="email"] {
+    border-radius: 5px; /* Bordes completos */
+    margin-bottom: 10px;
+    width: 80%; /* Ocupa más ancho */
+  }
+  .newsletter-form button {
+    border-radius: 5px; /* Bordes completos */
+    width: 80%; /* Ocupa más ancho */
+  }
+
+  .social-icons {
+    justify-content: center; /* Centra los iconos sociales */
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .payment-methods {
+    margin-top: 15px;
+  }
+}

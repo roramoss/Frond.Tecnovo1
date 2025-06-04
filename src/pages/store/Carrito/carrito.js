@@ -89,5 +89,26 @@
         urlImage:'src/assets/tle 1.png',
         quantity: 1,   
     },
+     {
+        id:13,
+        nameProduc: 'Motorola Smart 228GB ',
+        price: 100.000,
+        urlImage:'src/assets/tle 1.png',
+        quantity: 1,   
+    },
+     {
+        id:14,
+        nameProduc: 'Motorola Smart 228GB ',
+        price: 100.000,
+        urlImage:'src/assets/tle 1.png',
+        quantity: 1,   
+    },
+     {
+        id:15,
+        nameProduc: 'Motorola Smart 228GB ',
+        price: 100.000,
+        urlImage:'src/assets/tle 1.png',
+        quantity: 1,   
+    }
 ]
 

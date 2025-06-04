@@ -1,22 +1,21 @@
+
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom' 
 import { Toaster } from 'sonner'
+import { AuthProvider } from './providers/auth.providers.jsx'; 
 
 createRoot(document.getElementById('root')).render(
-
-  
-  
   <StrictMode>
-    <App />
-
-    <Toaster/>
-  </StrictMode>,
-  
-  
- 
-  
+    <BrowserRouter> 
+      <AuthProvider> 
+        <Toaster /> 
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </StrictMode>
 )

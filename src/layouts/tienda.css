@@ -46,7 +46,7 @@ img {
   position: absolute;
   top: 60px; /* Ajustado para estar más cerca del icono */
   right: 0;
-  background-color: #fff; /* Fondo blanco para un look moderno y limpio */
+  background-color: #ffffff; /* Fondo blanco para un look moderno y limpio */
   width: 320px; /* Un ancho más compacto, común en diseños modernos */
   z-index: 3;
   color: #000000;
@@ -158,7 +158,7 @@ body {
 }
 
 .container-items {
-  border: solid 1px black;
+  border: solid 1px rgb(0, 0, 0);
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tres columnas responsivas */
@@ -175,7 +175,9 @@ body {
 
 .item {
 border:  solid 1px black;
-margin: 3px;
+
+margin: 1px;
+width: 300px;
   color: #000000;
   background-color: rgb(255, 255, 255); /* Fondo blanco para cada producto */
   border-radius: 10px; /* Bordes redondeados */

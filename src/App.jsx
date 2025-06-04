@@ -12,10 +12,14 @@ import AboutPage from "./pages/store/about.page";
 import ProductPage from "./pages/admin/products.page";
 import NotFoundPage from "./pages/store/404";
 import StoreLayout from "./layouts/Store.layout";
+import { AuthProvider } from "./providers/auth.providers";
 
 const App = () => {
   return (
-    <Router>
+
+    <AuthProvider>
+
+ 
       <Routes>
          <Route > 
         <Route index element = { <HomePage/>}/>
@@ -42,8 +46,12 @@ const App = () => {
 
 
       </Routes>
-    </Router>
+    
+    </AuthProvider>
   );
+
+    
+  
 };
 
 export default App;

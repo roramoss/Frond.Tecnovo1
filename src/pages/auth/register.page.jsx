@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { validateEmail } from "../../helpers/validator.helpers";
 import axiosClient from "../store/services/axios.service"
+import Footer from "../../components/footer";
 
 
 
@@ -138,9 +139,9 @@ const {data} = await axiosClient.post('users/create', {
 
 
 
+<br /><br /><br /><br /><br />
 
-
-    
+ <Footer/>
     
 
 
