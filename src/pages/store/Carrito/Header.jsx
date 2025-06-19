@@ -3,6 +3,7 @@ import { useState} from 'react';
 import NotFoundPage from '../404';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
+import Header from '../../../components/header.component';
 
 
 const CarritoHeader =  ({
@@ -38,8 +39,9 @@ const navigate = useNavigate();
 
   return (
     <>
- {/* <body> */}
- 
+
+ <Header/>
+ <br /><br /><br /><br /><br /><br />
  <div className="navbar">
 <img
 		 src="src/assets/logo_transparent.png"
@@ -79,9 +81,6 @@ const navigate = useNavigate();
  
 
 </div>
-
-
- 
 
 
 				<div
@@ -145,7 +144,7 @@ const navigate = useNavigate();
 					)}
 				</div>
 			</div>
-		{/* </body> */}
+		
     
     </>
   )

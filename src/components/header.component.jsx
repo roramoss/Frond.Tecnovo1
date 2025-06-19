@@ -18,14 +18,21 @@ const Header = () => {
   };
 
   return (
-    <header className='fixed w-full left-0 top-0 flex items-center justify-between p-5'>
-      <h1>LOGO</h1>
+    <header className='fixed w-full left-0 top-0 flex items-center justify-between p-5 bg-gray-900 text-white shadow-lg'>
+
+      <Link to='/'>LOGO</Link>
       {!_id ? (
         <div className='flex items-center gap-x-3'>
           <Link to='/auth/login'>Iniciar sesión</Link>
           <Link to='/auth/registro'>Registro</Link>
         </div>
       ) : (
+
+       
+
+
+
+    
         <button onClick={handleLogout}>Cerrar sesión</button>
       )}
     </header>

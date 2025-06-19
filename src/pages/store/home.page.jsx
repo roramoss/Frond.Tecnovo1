@@ -6,11 +6,15 @@ import Nosotros from "../../components/nosotros";
 import Footer from "../../components/footer";
 import AboutUsPage from "./about.page";
 import NotFoundPage from "./404";
+import useAuth from "../../hooks/auth.hook";
 
 
 
 
 const HomePage = () => {
+
+
+
 
     const [currentIndex, setCurrentIndex] = useState(0);
 

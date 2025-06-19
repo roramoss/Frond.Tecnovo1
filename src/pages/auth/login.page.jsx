@@ -20,6 +20,7 @@ const Login = () => {
   const { setAuth } = useAuth();
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
 
     if (!email) {
@@ -41,9 +42,9 @@ const Login = () => {
       });
 
       if (data.response === 'success') {
-        localStorage.setItem('token', data.user.access_token);
+        localStorage.setItem("token", data.user.access_token);
         setAuth(data.user);
-        navigate('/');
+        navigate('/tienda');
       }
     } catch (error) {
       console.log(error);
@@ -52,8 +53,10 @@ const Login = () => {
   };
 
     useEffect(() => {
-      document.body.style.backgroundColor = "#f9f9f9"; // color claro, por ejemplo
-      document.body.style.color = "#000"; // texto negro (opcional)
+
+
+       document.body.style.backgroundColor = "#e0f2f7"; 
+       document.body.style.color = "#000"; 
     
       return () => {
         // Limpieza (por si salís del componente)
@@ -76,14 +79,16 @@ const Login = () => {
     <div className="max-w-md mx-auto mt-10 bg-white text-black p-20 rounded-xl shadow-lg ring-1 ring-gray-200">
   <h1 className="text-3xl font-semibold uppercase tracking-wide mb-10 text-center">Iniciar Sesión</h1>
 
-  <form>
+  <form onSubmit={handleSubmit}>
     <div className="mb-6">
       <label htmlFor="email" className="block text-sm font-medium mb-2 tracking-wide">Correo Electrónico</label>
       <input
-        type="email"
+        type="text"
         id="email"
         placeholder="rocio@gmail.com"
         autoComplete="off"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
       />
     </div>
@@ -94,6 +99,8 @@ const Login = () => {
         type="password"
         id="password"
         placeholder="********"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
         className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
       />
     </div>
