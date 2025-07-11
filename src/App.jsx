@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/admin"  element={ <AdmiLayout/>}>
           <Route index element ={ <DashboardPage/>}/>
           <Route path="gestor-usuarios" element={<UserPage/>} />
-          <Route path=" gestor-producto" element={<ProductPage/>} />
+          <Route path="gestor-producto" element={<ProductPage/>} />
           </Route>
 
           <Route path="*" element={<NotFoundPage/>} />

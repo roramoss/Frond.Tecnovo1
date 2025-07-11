@@ -3,6 +3,8 @@ import { useState } from 'react';
 
 import ProductList from './ProductList'
 import CarritoHeader from './Header';
+import App from '../../../components/crund';
+import ProductTable from '../../../components/productable';
 
 
 
@@ -28,6 +30,13 @@ function Carrito() {
  
 
 <h1 className='produ3'>Tienda online</h1>
+
+
+
+
+
+
+
 			<ProductList
 				allProducts={allProducts}
 				setAllProducts={setAllProducts}
@@ -37,7 +46,7 @@ function Carrito() {
 				setCountProducts={setCountProducts}
 			/>
 
-		
+		<ProductTable/>
 			
 		</>
 	);

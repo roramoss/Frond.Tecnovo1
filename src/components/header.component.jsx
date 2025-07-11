@@ -1,6 +1,7 @@
  import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../hooks/auth.hook';
 
+
 const Header = () => {
   const navigate = useNavigate();
 
@@ -14,25 +15,26 @@ const Header = () => {
     setAuth({});
     setIsLoading(false);
     localStorage.removeItem('token');
-    navigate('/auth/login');
+    navigate('/');
   };
 
-  return (
-    <header className='fixed w-full left-0 top-0 flex items-center justify-between p-5 bg-gray-900 text-white shadow-lg'>
 
-      <Link to='/'>LOGO</Link>
+
+  return (
+
+
+    <header className='fixed w-full left-0 top-0 flex items-center justify-between p-5 bg-gray-900 text-white shadow-lg'>
+<Link to='/'>LOGO</Link>
+
+
+
       {!_id ? (
         <div className='flex items-center gap-x-3'>
           <Link to='/auth/login'>Iniciar sesión</Link>
           <Link to='/auth/registro'>Registro</Link>
         </div>
       ) : (
-
-       
-
-
-
-    
+        
         <button onClick={handleLogout}>Cerrar sesión</button>
       )}
     </header>

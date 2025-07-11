@@ -4,8 +4,24 @@
 
 
 
-.navbar {
+ .navbar {
+
+ position: fixed;
     width: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem; /* p-5 often translates to 1.25rem or 20px depending on base font size */
+    background-color: #1a202c; /* bg-gray-900 is typically a very dark gray */
+    color: #ffffff; /* text-white */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg is a predefined shadow */
+    z-index: 1000; /* Often needed for fixed elements to stay on top */
+
+
+
+    /* width: 100%;
     display: flex;
     justify-content: space-between;
     background-color: rgb(16, 50, 82);
@@ -13,7 +29,7 @@
     position: sticky;
     top: 0;
     left: 0;
-    z-index: 1000; 
+    z-index: 1000;  */
   }
   
   .navbar ul {
@@ -37,28 +53,16 @@
   }
   
   .navbar li a:hover {
-    background-color: #181955;}
+    background-color: #1a202c;}
 
    
-.content {
-    background-color: rgb(16, 50, 82) ;
-    background-size: cover; 
-    background-position: center; 
-    color: rgb(255, 253, 253); 
-    padding: 50px; 
-   
-    display: flex; 
-    flex-direction: row; 
-    border-bottom: 1px solid #ffffff;
-    justify-content: space-around; 
-    
-  }
+
   
   @media (max-width: 768px) {
     .content {
         padding: 15px; 
-    }
-  }
+    } }
+  
 
 
 

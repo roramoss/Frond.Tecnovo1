@@ -55,7 +55,7 @@ const Login = () => {
     useEffect(() => {
 
 
-       document.body.style.backgroundColor = "#e0f2f7"; 
+       document.body.style.backgroundColor = "#ffffff"; 
        document.body.style.color = "#000"; 
     
       return () => {

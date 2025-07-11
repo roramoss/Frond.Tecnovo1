@@ -1,7 +1,5 @@
-import React from 'react'
+
 import { useState} from 'react';
-import NotFoundPage from '../404';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import Header from '../../../components/header.component';
 
@@ -40,8 +38,7 @@ const navigate = useNavigate();
   return (
     <>
 
- <Header/>
- <br /><br /><br /><br /><br /><br />
+
  <div className="navbar">
 <img
 		 src="src/assets/logo_transparent.png"
@@ -53,7 +50,7 @@ const navigate = useNavigate();
 
 
 <div className='container-icon'>
-<li><a href="/">Cerrar Sesion</a></li>
+<li><a href="/auth/login"> Cerrar Sesion</a></li>
 
 				<div
 					className='container-cart-icon'
