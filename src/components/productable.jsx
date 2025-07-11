@@ -28,13 +28,13 @@ const ProductTable = () => {
     padding: '12px 15px',
     textAlign: 'left',
     borderBottom: '1px solid #ddd',
-    color: 'black', // Color del texto de las celdas
+    color: 'black', 
   };
 
   const thStyle = {
     ...thTdStyle,
-    backgroundColor: ' #1a202c', // Fondo de los encabezados (puedes cambiarlo si quieres)
-    color: 'white', // Color del texto de los encabezados
+    backgroundColor: ' #1a202c', 
+    color: 'white', 
     textTransform: 'uppercase',
     fontSize: '0.9em',
   };
