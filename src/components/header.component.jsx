@@ -24,7 +24,9 @@ const Header = () => {
 
 
     <header className='fixed w-full left-0 top-0 flex items-center justify-between p-5 bg-gray-900 text-white shadow-lg'>
-<Link to='/'>LOGO</Link>
+<Link to='/'>
+  <img src="src/assets/logo_transparent.png" alt="Logo de tu sitio" className="h-20 md:h-102" />
+</Link>
 
 
 

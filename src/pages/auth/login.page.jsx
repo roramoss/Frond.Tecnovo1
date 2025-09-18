@@ -7,6 +7,7 @@ import { validateEmail } from '../../helpers/validator.helpers';
 import useAuth from '../../hooks/auth.hook.jsx';
 import axiosClient from '../../services/axios.service.jsx';
 import Footer from "../../components/footer.jsx";
+import Header from "../../components/header.component.jsx";
 
 
 
@@ -55,7 +56,7 @@ const Login = () => {
     useEffect(() => {
 
 
-       document.body.style.backgroundColor = "#ffffff"; 
+       document.body.style.img = "rgba(255, 255, 255, 1)"; 
        document.body.style.color = "#000"; 
     
       return () => {

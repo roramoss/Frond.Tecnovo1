@@ -47,18 +47,8 @@ const HomePage = () => {
     return (  
     
     <>
-    
-
-
-    <StoreLayout/>
-
-  <Nosotros/>
-
-    <Promociones/>
-    
-    
-    
-    <section>
+<br /> <br /> <br /><br /><br />
+<section>
 
     <div className="carousel">
       <div className="carousel-images">
@@ -77,8 +67,12 @@ const HomePage = () => {
 
     </section>
 
+ <Promociones/>
+ <StoreLayout/>
 
+  <Nosotros/>
 
+   
  <Footer/>
 
 

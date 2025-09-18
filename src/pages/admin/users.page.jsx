@@ -12,7 +12,8 @@ const UsersPage = () => {
 
   return permissions.includes('isAdmin') ? (
     // Contenedor principal de la página, con fondo blanco/claro y texto negro
-    <div className='min-h-screen bg-gray-50 p-8 text-black'>
+    
+    <div className='min-h-screen bg-gray-50 p-8 text-black'> <br /><br /><br /><br /><br /> <br /><br /><br />
       {/* Título principal de la página, en azul */}
       <h1 className="text-4xl font-extrabold text-blue-700 mb-6">Administración de Usuarios</h1>
 

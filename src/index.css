@@ -643,10 +643,11 @@
 
 /* Estilos para la sección principal de promociones */
 .promociones-section {
-  padding: 80px 50px;
+  padding: 0px 0px;
   background-color: #ffffff; 
   font-family: 'Roboto', sans-serif;
-  color: #000000; 
+  color: #000000;
+  margin-top:0px; 
 }
 
 /* Estilos para el título principal de las promociones */
@@ -669,7 +670,7 @@
   bottom: 0;
   width: 220px;
   height: 8px;
-  background-color: #000000; 
+  background-color: #cecdcd; 
   border-radius: 2px;
 }
 
@@ -681,6 +682,7 @@
   gap: 30px; 
   max-width: 1200px;
   margin: 0 auto;
+ 
  
 }
 
@@ -695,16 +697,16 @@
 .promo-card {
   background-color: rgba(255, 255, 255, 0.1); 
   border-radius: 9px;
-  box-shadow: 0 4px 8px rgba(202, 21, 21, 0.1); 
+  box-shadow: 0 4px 8px rgba(50, 89, 160, 0.329); 
   overflow: hidden;
   transition: transform 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  text-align: center;
   max-width: 800px; 
   width: 100%;
-  
-}
+  }
 
 
 .promo-card:hover {
