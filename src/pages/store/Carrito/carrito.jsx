@@ -32,11 +32,6 @@ function Carrito() {
 <h1 className='produ3'>Tienda online</h1>
 
 
-
-
-
-
-
 			<ProductList
 				allProducts={allProducts}
 				setAllProducts={setAllProducts}

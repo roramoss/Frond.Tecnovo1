@@ -73,71 +73,85 @@ const {data} = await axiosClient.post('users/create', {
 <>
 
 
-<div className="max-w-md mx-auto mt-10 bg-white text-black p-10 rounded-xl shadow-lg ring-1 ring-gray-200">
-  <h1 className="text-3xl font-semibold uppercase tracking-wide mb-10 text-center">Registro</h1>
+<div className="max-w-md mx-auto mt-10 bg-white text-gray-900 p-10 rounded-2xl shadow-xl ring-4 ring-indigo-500/10">
 
-  <form onSubmit={handleSubmit}>
-    <div className="mb-6">
-      <label htmlFor="name" className="block text-sm font-medium mb-2 tracking-wide">Nombre</label>
-      <input
-        type="text"
-        id="name"
-        placeholder="Rocio Esperanza"
-        autoComplete="off"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
-      />
-    </div>
+    {/* Título Modificado: Ahora usa text-black para que sea negro */}
+    <h1 className="text-4xl font-bold tracking-tight mb-8 text-center text-black">
+        Registro
+    </h1>
 
-    <div className="mb-6">
-      <label htmlFor="lastname" className="block text-sm font-medium mb-2 tracking-wide">Apellidos</label>
-      <input
-        type="text"
-        id="lastname"
-        placeholder="Ramos"
-        autoComplete="off"
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-        className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
-      />
-    </div>
+    <form onSubmit={handleSubmit}>
+        
+        <div className="mb-6">
+            <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700">
+                Nombre
+            </label>
+            <input
+                type="text"
+                id="name"
+                placeholder="Rocio Esperanza"
+                autoComplete="off"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition duration-200 shadow-inner"
+            />
+        </div>
 
-    <div className="mb-6">
-      <label htmlFor="email" className="block text-sm font-medium mb-2 tracking-wide">Correo Electrónico</label>
-      <input
-        type="text"
-        id="email"
-        placeholder="rocio@gmail.com"
-        autoComplete="off"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
-      />
-    </div>
+        <div className="mb-6">
+            <label htmlFor="lastname" className="block text-sm font-medium mb-2 text-gray-700">
+                Apellidos
+            </label>
+            <input
+                type="text"
+                id="lastname"
+                placeholder="Ramos"
+                autoComplete="off"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition duration-200 shadow-inner"
+            />
+        </div>
 
-    <div className="mb-8">
-      <label htmlFor="password" className="block text-sm font-medium mb-2 tracking-wide">Contraseña</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="*********"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="w-full px-5 py-3 bg-white border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-black focus:border-black transition"
-      />
-    </div>
+        <div className="mb-6">
+            <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700">
+                Correo Electrónico
+            </label>
+            <input
+                type="text"
+                id="email"
+                placeholder="rocio@gmail.com"
+                autoComplete="off"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition duration-200 shadow-inner"
+            />
+        </div>
 
-    <button
-      type="submit"
-      className="w-full py-3 bg-black text-white font-semibold rounded-lg hover:bg-white hover:text-black border-2 border-black transition duration-300"
-    >
-      Crear Cuenta
-    </button>
-  </form>
+        <div className="mb-8">
+            <label htmlFor="password" className="block text-sm font-medium mb-2 text-gray-700">
+                Contraseña
+            </label>
+            <input
+                type="password"
+                id="password"
+                placeholder="*********"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-100 focus:border-indigo-500 transition duration-200 shadow-inner"
+            />
+        </div>
+
+       <button
+    type="submit"
+    // Fíjate en los cambios: bg-black, shadow-gray-900/50, hover:bg-gray-900, hover:shadow-gray-900/60
+    className="w-full py-3 bg-black text-white font-bold rounded-xl shadow-lg shadow-gray-900/50 
+               hover:bg-gray-900 hover:shadow-xl hover:shadow-gray-900/60 
+               transition duration-300 transform hover:-translate-y-0.5"
+>
+    Crear Cuenta
+</button>
+    </form>
 </div>
-
-
 
 <br /><br /><br /><br /><br />
 

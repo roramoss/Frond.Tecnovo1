@@ -47,7 +47,8 @@ const HomePage = () => {
     return (  
     
     <>
-<br /> <br /> <br /><br /><br />
+     <StoreLayout/>
+
 <section>
 
     <div className="carousel">
@@ -68,9 +69,10 @@ const HomePage = () => {
     </section>
 
  <Promociones/>
- <StoreLayout/>
+ <br />
+<Nosotros/>
 
-  <Nosotros/>
+  
 
    
  <Footer/>

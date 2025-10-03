@@ -1,290 +1,314 @@
  
-.icon-cart {
-	width: 80px;
-	height: 60px;
-	stroke: #f8f8f8;
-}
-
-.icon-cart:hover {
-	cursor: pointer;
-}
-
-img {
-	max-width: 90%;
-}
-
-
-
-.container-icon {
-	position: relative;
-  display: flex;
-  justify-content: baseline;
-}
-
-.count-products {
-	position: absolute;
-	top: 55%;
-	right: 0;
-
-	background-color: #fff9f9;
-	color: #000000;
-	width: 30px;
-	height: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 50%;
-}
-
-#contador-productos {
-	font-size: 12px;
-}
-
-
-
-.container-cart-products {
-  position: absolute;
-  top: 60px; /* Ajustado para estar más cerca del icono */
-  right: 0;
-  background-color: #ffffff; /* Fondo blanco para un look moderno y limpio */
-  width: 320px; /* Un ancho más compacto, común en diseños modernos */
-  z-index: 3;
-  color: #000000;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Sombra más sutil pero definida */
-  border-radius: 12px; /* Bordes más redondeados para un toque suave */
-  overflow: hidden; /* Para que los bordes redondeados funcionen bien con el contenido */
-  
-
- 
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
-
-.container-cart-products.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-
-
-/* .container-cart-products {
-	position: absolute;
-	top: 90px;
-	right: 0;
-	background-color: #b9b9b9;
-	width: 500px;
-	z-index: 3;
-	box-shadow: 0 10px 20px rgba(59, 42, 42, 0.2);
-	border-radius: 10px;
-} */
-
-.cart-product {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 28px;
-	border-bottom: 1px solid rgba(75, 51, 51, 0.2);
-}
-
-.info-cart-product {
-	display: flex;
-	justify-content: space-between;
-	flex: 1.3;
-}
-
-.titulo-producto-carrito {
-	font-size: 20px;
-}
-
-.precio-producto-carrito {
-	font-weight: 800;
-	font-size: 20px;
-	margin-left: 10px;
-}
-
-.cantidad-producto-carrito {
-	font-weight: 800;
-	font-size: 20px;
-  margin-right: 10px;
-}
-
-.icon-close {
-	width: 20px;
-	height: 20px;
-}
-
-.icon-close:hover {
-	stroke: rgb(241, 219, 219);
-	cursor: pointer;
-}
-
-.cart-total {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 10px 0;
-	gap: 20px;
-}
-
-.cart-total h3 {
-	font-size: 25px;
-	font-weight: 700;
-}
-
-.total-pagar {
-	font-size: 20px;
-	font-weight: 900;
-}
-
-.hidden-cart {
-	display: none;
-} 
-
-
-
-
-
-/* Main  Del Carrito por ende de la pagina principal*/
+/* ==================================== */
+/* 1. Reset Global y Fondo de la Página */
+/* ==================================== */
 * {
-  margin: 0;
-  padding: 0; /* Elimina el padding por defecto */
-  box-sizing: border-box; /* Asegura que el padding y el borde no afecten el tamaño total */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background-color: rgb(255, 255, 255); 
-  color: rgb(255, 255, 255); /* Color de texto blanco para mejor contraste */
-  line-height: 1.5; /* Mejora la legibilidad del texto */
+    /* Fondo muy claro, casi blanco, que es suave a la vista */
+    background-color: #ffffff; 
+    color: #000000; /* Color de texto oscuro para alta legibilidad */
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
 }
 
-.container-items {
-  border: solid 1px rgb(0, 0, 0);
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Tres columnas responsivas */
-  gap: 120px; /* Espacio entre elementos */
-  background: linear-gradient(105deg, rgb(255, 255, 255), rgb(255, 255, 255)); /* Gradiente moderno */
-  padding: 80px; /* Espaciado interno */
+/* ==================================== */
+/* 2. Barra de Navegación y Iconos (Modernizando) */
+/* ==================================== */
+
+.container-icon {
+    position: relative;
+    display: flex;
+    align-items: center; /* Alineación vertical central */
+    gap: 15px; /* Espacio entre elementos */
 }
 
-.container-items > * {
-  position: relative; /* Asegura que el contenido esté por encima del fondo */
-  z-index: 1; /* Coloca el contenido por encima */
+.icon-cart {
+    width: 28px; /* Tamaño de ícono más estándar */
+    height: 28px;
+    stroke: #6d6969; /* Color de ícono oscuro sutil */
+    transition: stroke 0.2s, transform 0.2s;
 }
 
-
-.item {
-border:  solid 1px black;
-
-margin: 1px;
-width: 300px;
-  color: #000000;
-  background-color: rgb(255, 255, 255); /* Fondo blanco para cada producto */
-  border-radius: 10px; /* Bordes redondeados */
-  overflow: hidden; /* Para que el contenido no sobresalga */
-  transition: transform 0.3s; /* Suavizar la animación */
+.icon-cart:hover {
+    stroke: #7c3aed; /* Color de acento (Púrpura/Índigo) al hacer hover */
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
-.item:hover {
-  transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+img {
+    max-width: 100%;
 }
 
-.item img {
-  width: 100%;
-  height: auto; /* Mantiene la proporción de la imagen */
-  object-fit: cover; /* Ajusta la imagen para cubrir el espacio */
-  transition: transform 0.5s; /* Animación de escalado más fluida */
-  
+/* Contador (Burbuja Flotante) */
+.count-products {
+    position: absolute;
+    top: -5px; /* Posición ajustada para flotar sobre la esquina del ícono */
+    right: -10px;
+
+    background-color: #ef4444; /* Rojo vibrante para atención (error/alerta) */
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 10px; /* Tamaño de fuente más pequeño */
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(239, 68, 68, 0.6); /* Sombra de resplandor (glow) */
 }
 
-.item:hover img {
-  transform: scale(1.1); /* Escalado en hover */
-}
-figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 350px; /* Ajustá este valor según el alto deseado */
-  overflow: hidden;
-  border: 2px;
+#contador-productos {
+    /* No necesitamos un font-size específico si ya lo definimos en .count-products */
+    font-size: inherit; 
 }
 
-figure img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  transition: transform 0.5s;
-  max-height: 100%;
+/* ==================================== */
+/* 3. Carrito Desplegable (Dropdown) */
+/* ==================================== */
+.container-cart-products {
+    position: absolute;
+    top: 45px; /* Ajuste crítico: Baja justo debajo de la navbar/ícono */
+    right: 0;
+    background-color: #be6565;
+    width: 300px; /* Ancho más compacto */
+    z-index: 100; /* Asegura que esté por encima de todo */
+    color: #333333;
+    /* Sombra más profunda y moderna */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+    border-radius: 10px; 
+    overflow: hidden;
+    padding: 10px 0; /* Espaciado interno general */
+    
+    /* Control de transición con opacidad y escala para un efecto suave */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-
-.info-product {
-  padding: 15px; /* Espaciado interno */
-  display: flex;
-  flex-direction: column; /* Asegura que la información esté apilada verticalmente */
-  gap: 10px; /* Espacio entre elementos de información */
+.container-cart-products.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
-.price {
-  font-size: 1.2rem; /* Tamaño de fuente responsivo */
-  font-weight: bold; /* Negrita para destacar el precio */
-  color: rgb(0, 0, 0); /* Color del texto */
-}
-
-.info-product button {
-  background-color: rgb(241, 241, 241); /* Color del botón */
-  color: rgb(2, 1, 1); /* Color del texto del botón */
-  padding: 10px; /* Espaciado interno del botón */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados para el botón */
-  cursor: pointer; /* Cambia el cursor al pasar el ratón */
-  transition: background-color 0.3s; /* Suavizar el cambio de color */
-}
-
-.info-product button:hover {
-  background-color:  #383232; /* Color del botón al pasar el ratón */
+.hidden-cart {
+    /* Utiliza las clases de opacidad/visibilidad en su lugar para la transición */
+    /* display: none; */ 
+    /* Esta clase debe ser manejada por la lógica de React/JS junto con la transición */
 }
 
 .cart-empty {
     padding: 20px;
     text-align: center;
+    color: #808080;
+    font-style: italic;
 }
 
-.hidden {
-    display: none;
+/* Detalle del Producto en el Carrito */
+.cart-product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px; /* Padding ajustado */
+    border-bottom: 1px solid #eeeeee;
+}
+
+.info-cart-product {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 10px;
+}
+
+.cantidad-producto-carrito {
+    font-weight: 700;
+    font-size: 16px;
+    color: #7c3aed; /* Color de acento para la cantidad */
+}
+
+.titulo-producto-carrito {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+.precio-producto-carrito {
+    font-weight: 700;
+    font-size: 16px;
+    color: #333;
+}
+
+.icon-close {
+    width: 18px;
+    height: 18px;
+    stroke: #999;
+    transition: stroke 0.2s;
+}
+
+.icon-close:hover {
+    stroke: #ef4444; /* Rojo de eliminación */
+    cursor: pointer;
+}
+
+/* Total del Carrito */
+.cart-total {
+    display: flex;
+    justify-content: space-between; /* Alinea Total y Precio a los extremos */
+    align-items: center;
+    padding: 15px 20px 10px;
+    border-top: 2px solid #f0f0f0;
+    margin-top: 10px;
+}
+
+.cart-total h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.total-pagar {
+    font-size: 22px;
+    font-weight: 900;
+    color: #7c3aed; /* Color de acento destacado */
+}
+
+/* Botones del Carrito */
+.btn-clear-all,
+.btn-clear-all-comprar {
+    padding: 12px 15px;
+    width: calc(100% - 40px); /* 100% menos el padding lateral del contenedor */
+    margin: 5px 20px; /* Centrado con margen */
+    border: none;
+    border-radius: 8px; 
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
 }
 
 .btn-clear-all {
-    background-color: #f3f3f3;
-    color: #000000;
-    padding: 15px;
-    width: 100%;
-    border: none;
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 1rem; /* Tamaño de fuente responsivo */
-    cursor: pointer;
-    transition: background-color 0.3s; /* Suavizar transición */
-}
-
-.btn-clear-all-comprar {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 15px;
-  width: 100%;
-  border: none;
-  border-radius: 5px; /* Bordes redondeados */
-  font-size: 1rem; /* Tamaño de fuente responsivo */
-  cursor: pointer;
-  transition: background-color 0.3s; /* Suavizar transición */
-}
-.btn-clear-all-comprar:hover{
-  background-color: #333;
+    background-color: #f44336; /* Rojo de "Eliminar" */
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(244, 67, 54, 0.3);
 }
 
 .btn-clear-all:hover {
-    background-color: #333;
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(244, 67, 54, 0.4);
 }
 
+.btn-clear-all-comprar {
+    background-color: #7c3aed; /* Púrpura/Índigo de "Comprar" */
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+}
+
+.btn-clear-all-comprar:hover {
+    background-color: #6d28d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(124, 58, 237, 0.4);
+}
+
+/* ==================================== */
+/* 4. Contenedor Principal (Grid) */
+/* ==================================== */
+.container-items {
+    /* El borde es demasiado duro, lo reemplazamos por un padding y sombra */
+    border: none;
+    
+    position: relative;
+    display: grid;
+    /* Grid más flexible: mínimo 280px para productos */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; /* Espacio más compacto y visualmente agradable */
+    background: none; /* Dejamos que el body maneje el fondo */
+    padding: 40px; 
+    max-width: 1400px; /* Límite de ancho para un diseño centrado y moderno */
+    margin: 0 auto;
+}
+
+/* ==================================== */
+/* 5. Tarjeta de Producto (Item) */
+/* ==================================== */
+.item {
+    border: none; /* Quitamos el borde duro */
+    margin: 0;
+    width: 100%; /* Ocupa todo el espacio de su columna en el grid */
+    color: #333333;
+    background-color: #e7e5e5; 
+    border-radius: 12px; 
+    /* Sombra suave y sutil, que da el efecto de flotar */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.item:hover {
+    transform: translateY(-5px); /* Se eleva un poco más */
+    /* Sombra más intensa al hacer hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); 
+}
+
+figure {
+    height: 250px; /* Altura fija para uniformidad */
+    overflow: hidden;
+    border: none; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 'contain' para que la imagen se vea completa sin cortar */
+    transition: transform 0.5s;
+    padding: 10px; /* Espacio dentro de la figura para que la imagen no toque los bordes */
+}
+
+.item:hover img {
+    transform: scale(1.05); /* Escalado sutil */
+}
+
+.info-product {
+    padding: 15px 20px; 
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    /* Un pequeño borde superior para separar la imagen de la info */
+    border-top: 1px solid #f0f0f0;
+}
+
+.price {
+    font-size: 1.4rem; 
+    font-weight: 800;
+    color: #222222; 
+}
+
+.info-product button {
+    background-color: #f0f4ff; /* Fondo muy claro, casi blanco-azul */
+    color: #7c3aed; 
+    padding: 10px; 
+    border: 1px solid #7c3aed; /* Borde del color de acento */
+    border-radius: 6px; 
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.info-product button:hover {
+    background-color: #7c3aed; /* Se rellena con el color de acento */
+    color: #ffffff;
+    transform: scale(1.01);
+}
 
 
 

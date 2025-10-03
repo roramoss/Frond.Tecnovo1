@@ -1,0 +1,126 @@
+/*
+ * Archivo CSS para un formulario de inicio de sesión moderno y oscuro.
+ * Inspirado en la estética de productos electrónicos y tecnología (glow, dark theme).
+ */
+
+:root {
+  /* Variables de Color */
+  --color-accent: #00FFFF; /* Electric Cyan/Azul, ideal para tecnología */
+  --color-background: #121212; /* Fondo muy oscuro */
+  --color-card: #1e1e1e; /* Fondo de la tarjeta, ligeramente más claro */
+  --color-text: #E0E0E0; /* Texto principal claro */
+  --color-border: #333333; /* Borde oscuro */
+  --color-placeholder: #555555;
+}
+
+/* Aplica el fondo y color de texto a toda la página para el tema oscuro */
+body {
+    background-color: var(--color-background) !important;
+    color: var(--color-text) !important;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.5s ease;
+}
+
+/* Contenedor principal del formulario */
+.login-container {
+    max-width: 440px;
+    margin: 5rem auto 5rem auto; /* Centrado y con buen margen */
+    background-color: var(--color-card);
+    color: var(--color-text);
+    padding: 2.5rem;
+    border-radius: 12px;
+    /* Sombra base y un borde sutil para profundidad */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Efecto de brillo (glow) al pasar el ratón */
+.login-container:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2), 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.login-title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em; /* Más espaciado para un look más agresivo */
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--color-accent);
+    /* Brillo de texto sutil */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.08em;
+    color: var(--color-text);
+}
+
+/* Campos de entrada (Input) */
+.login-input {
+    width: 100%;
+    padding: 0.8rem 1.25rem;
+    background-color: var(--color-background); /* Fondo de input aún más oscuro */
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.login-input::placeholder {
+    color: var(--color-placeholder);
+}
+
+/* Efecto de enfoque (Focus) */
+.login-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.4); /* Glow en el borde */
+}
+
+/* Botón de Iniciar Sesión */
+.login-button {
+    width: 100%;
+    padding: 0.85rem;
+    margin-top: 1.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-background); /* Texto oscuro sobre botón brillante */
+    font-weight: 700;
+    border-radius: 8px;
+    border: 2px solid var(--color-accent);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3); /* Sombra que simula el brillo */
+}
+
+/* Efecto Hover del Botón */
+.login-button:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+    box-shadow: 0 0 20px var(--color-accent);
+    transform: translateY(-3px);
+}
+
+/* Adaptabilidad a dispositivos móviles */
+@media (max-width: 600px) {
+    .login-container {
+        max-width: 90%;
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+    .login-title {
+        font-size: 1.5rem;
+    }
+}

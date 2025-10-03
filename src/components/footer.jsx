@@ -30,9 +30,7 @@ const Footer = () => {
         <div className="footer-section about-us-footer">
           <h4>Sobre Nosotros</h4>
           {/* Aquí puedes añadir tu logo si quieres que aparezca en esta sección */}
-          <Link to="/" className="footer-logo-link">
-            <img src="src/assets/logo_transparent.png" alt="TecNovo Logo" /> {/* Asegúrate de que la ruta sea correcta */}
-          </Link>
+          
           <p>Somos un emprendimiento apasionado por la tecnología, dedicado a ofrecerte los últimos y mejores productos electrónicos. En TecNovo, tu satisfacción es nuestra prioridad.</p>
         </div>
 

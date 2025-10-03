@@ -9,8 +9,6 @@ const StoreLayout = () => {
 
         <Header/>
 
-         <br /><br /><br /><br /><br />
-        
         <Outlet/>
         </>
          );
