@@ -3,7 +3,13 @@ import App from "../../components/crund";
 
 const ProductPage = () => {
     return (
+        <>
+        
+        
         <Crund/>
+        
+        </>
+        
     );
 }
  
