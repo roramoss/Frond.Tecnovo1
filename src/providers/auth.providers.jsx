@@ -4,41 +4,48 @@ import axiosClient from '../services/axios.service.jsx';
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState({});
-  const [isLoading, setIsLoading] = useState(true); // Inicialmente en TRUE
+    const [auth, setAuth] = useState({});
+    const [isLoading, setIsLoading] = useState(true); // Inicialmente en TRUE
 
-  useEffect(() => {
-    (async () => {
-      const token = localStorage.getItem('token');
+    useEffect(() => {
+        const checkAuth = async () => {
+            const token = localStorage.getItem('token');
 
-      if (!token) {
-        return;
-      }
+            if (!token) {
+                // Si NO hay token, terminamos la carga inmediatamente.
+                setIsLoading(false); 
+                return; // Salimos de la función
+            }
 
-      const config = {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      };
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
+            };
 
-      try {
-        const { data } = await axiosClient.get('/users/me', config);
-        setAuth(data);
-        // Si tiene éxito, el finally lo establecerá en false
-      } catch (error) {
-        setAuth({});
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
+            try {
+                // Intentamos validar el token con el backend
+                const { data } = await axiosClient.get('/users/me', config);
+                setAuth(data);
+            } catch (error) {
+                // Si la validación falla (token inválido/expirado), limpiamos todo.
+                setAuth({});
+                localStorage.removeItem('token'); 
+            } finally {
+                // La carga finaliza SÍ O SÍ después del intento (try o catch).
+                setIsLoading(false);
+            }
+        };
 
-  return (
-    <AuthContext.Provider value={{ auth, setAuth, isLoading, setIsLoading }}>
-      {children}
-    </AuthContext.Provider>
-  );
+        checkAuth();
+    }, []); // El array vacío asegura que se ejecute solo al montar el componente.
+
+    return (
+        <AuthContext.Provider value={{ auth, setAuth, isLoading, setIsLoading }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
 export { AuthProvider };

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Agregamos useNavigate por si acaso
+import React, { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 // Componentes de Layout
-import StoreLayout from "../../layouts/Store.layout"; // Componente de Layout
+import StoreLayout from "../../layouts/Store.layout";
 import Promociones from "../promociones";
 import Nosotros from "../../components/nosotros";
 import Footer from "../../components/footer";
@@ -10,18 +10,17 @@ import useAuth from "../../hooks/auth.hook";
 
 
 const HomePage = () => {
-    // 1. --- HOOKS (DEBEN IR PRIMERO) ---
+    // 1. --- HOOKS DE ESTADO Y AUTH ---
     const {
         auth: { email, _id, permissions },
         isLoading,
-    } = useAuth();
+    } = useAuth(); 
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // 2. --- DATOS Y FUNCIONES ---
-    // Rutas de imágenes como strings, sin importaciones.
+    // 2. --- DATOS ESTÁTICOS (Usando rutas de string directo) ---
     const images = [
-        'src/assets/promocion1.webp',
+        'src/assets/promocion1.webp', 
         'src/assets/promocion2.webp',
         'src/assets/promocion3.webp',
         'src/assets/promomomo.webp'
@@ -29,48 +28,50 @@ const HomePage = () => {
     
     // Datos simulados para productos destacados
     const featuredProducts = [
-        // 🚨 CLAVE: Asegúrate de que estas rutas sean correctas o usa las que se ven en tu imagen (165289, etc.)
-        { id: 1, name: 'Smartphone Pro Max', price: '999.00', image: 'src/assets/product1.webp' },
-        { id: 2, name: 'Smartwatch Serie X', price: '299.00', image: 'src/assets/product2.webp' },
-        { id: 3, name: 'Auriculares Ultra', price: '149.00', image: 'src/assets/product3.webp' },
+        
+        { id: 1, name: 'Smartphone Pro Max', price: '999.00', image: 'src/assets/165379-300-300.png' },
+        { id: 2, name: 'Smartwatch Serie X', price: '299.00', image: 'src/assets/165388-300-300.png' },
+        { id: 3, name: 'Ultra', price: '149.00', image: 'src/assets/168081-300-300.png' },
     ];
     
-    // NOTA: Tu captura de pantalla tiene estas rutas: 'src/assets/165289-300-300.png', etc.
-    // Si la versión con 'product1.webp' no funciona, usa las que tienes en el código de la imagen.
-
-    const nextImage = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-    };
+    // 3. --- FUNCIONES ---
+    
+    // Utilizamos useCallback para que el useEffect no se ejecute en cada render
+    const nextImage = useCallback(() => {
+        setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1)); 
+    }, [images.length]);
 
     const prevImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
     };
 
-    // 3. --- EFECTOS ---
+    // 4. --- EFECTOS ---
     useEffect(() => {
         const interval = setInterval(() => {
             nextImage();
         }, 5000);
 
-        // Limpieza del intervalo
         return () => clearInterval(interval);
-    }, [nextImage]);
+    }, [nextImage]); 
 
-    // 4. --- RETORNO CONDICIONAL DE CARGA ---
+    
+    // 5. --- RETORNO CONDICIONAL DE CARGA ---
     if (isLoading) return <div className="min-h-screen flex items-center justify-center text-2xl">Cargando...</div>;
 
-    // 5. --- RENDERIZADO PRINCIPAL DENTRO DEL LAYOUT ---
+    
+    // 6. --- RENDERIZADO PRINCIPAL (USO CORRECTO DE STORELAYOUT) ---
     return ( 
-        // 🛑 TODO EL CONTENIDO VA DENTRO DEL RETURN
+        // 🟢 CORRECCIÓN: Usar StoreLayout como envoltorio
         <StoreLayout> 
+
             {/* Bloque de Bienvenida Condicional */}
             {_id ? (
                 // 🟢 Usuario Logueado
                 <div className="flex flex-col items-center justify-center space-y-4 p-8 bg-blue-50 border-b-4 border-blue-500 shadow-md">
-                    {/* ... (Contenido de bienvenida) ... */}
                     <div className="text-3xl font-light text-gray-800">
                         ¡Hola de nuevo! <span className="font-bold text-blue-600">{email}</span>
                     </div>
+
                     <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-6">
                         <Link 
                             to="/tienda" 
@@ -103,12 +104,11 @@ const HomePage = () => {
 
             {/* 🌎 Sección del Carrusel */}
             <section className="relative w-full max-w-7xl mx-auto my-8 overflow-hidden rounded-lg shadow-2xl">
-                {/* ... (Código del carrusel) ... */}
                 <div className="relative">
                     {images.map((image, index) => (
                         <img
                             key={index}
-                            src={image} 
+                            src={image} // Usando el string de ruta directa
                             alt={`Promoción ${index + 1}`}
                             className={`w-full h-96 object-cover transition-opacity duration-500 ${index === currentIndex ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'}`}
                             style={{ display: index === currentIndex ? 'block' : 'none' }}
@@ -184,8 +184,8 @@ const HomePage = () => {
             <br />
             <Nosotros />
             <Footer />
-        </StoreLayout> // 🛑 Cierra el Layout aquí
+        </StoreLayout>
     );
 }
- 
+
 export default HomePage;

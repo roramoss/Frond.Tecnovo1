@@ -18,7 +18,7 @@ import UsersPage from "./pages/admin/users.page";
 
 const App = () => {
   return (
-    <AuthProvider>
+    
       <Routes>
         {/* --- Rutas Públicas (Sin Layout Compartido, usan StoreLayout internamente) --- */}
         <Route path="/" element={<HomePage />} />
@@ -42,7 +42,7 @@ const App = () => {
         {/* --- Ruta 404 (Siempre al final) --- */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </AuthProvider>
+   
   );
 };
 
