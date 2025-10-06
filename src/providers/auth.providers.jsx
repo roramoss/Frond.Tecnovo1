@@ -1,4 +1,4 @@
- import { useState, createContext, useEffect } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import axiosClient from '../services/axios.service.jsx';
 
 const AuthContext = createContext();
@@ -8,10 +8,12 @@ const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    (async () => {
+    const checkAuth = async () => { // Cambiado a función normal para claridad
       const token = localStorage.getItem('token');
 
       if (!token) {
+        // CORRECCIÓN CLAVE: Terminar la carga si no hay token.
+        setIsLoading(false); 
         return;
       }
 
@@ -26,11 +28,15 @@ const AuthProvider = ({ children }) => {
         const { data } = await axiosClient.get('/users/me', config);
         setAuth(data);
       } catch (error) {
+        // En caso de error (token inválido/expirado)
         setAuth({});
-      } finally {
-        setIsLoading(false);
-      }
-    })();
+        localStorage.removeItem('token');
+      } 
+      // Si todo sale bien (try) o mal (catch), la carga termina aquí.
+      setIsLoading(false); // Esta línea ahora manejará el éxito/fallo de la API
+    };
+    
+    checkAuth(); // Llamada a la función autodefinida
   }, []);
 
   return (
@@ -41,5 +47,4 @@ const AuthProvider = ({ children }) => {
 };
 
 export { AuthProvider };
-
 export default AuthContext;

@@ -3,7 +3,7 @@ import Header from '../components/header.component';
 
 const AdminLayout = () => {
   return (
-    <main className='min-h-screen flex items-center justify-center'>
+    <main >
       <Header />
       <Outlet />
     </main>

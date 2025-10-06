@@ -50,7 +50,7 @@ const navigate = useNavigate();
         {/* Link Cerrar Sesión (CORREGIDO: text-gray-600 -> text-white) */}
         <li>
             <a 
-                href="/auth/login" 
+                href="/" 
                 className="text-white hover:text-indigo-600 font-medium transition duration-200"
             > 
                 Cerrar Sesion
