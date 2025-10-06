@@ -18,42 +18,32 @@ import UsersPage from "./pages/admin/users.page";
 
 const App = () => {
   return (
-
     <AuthProvider>
-
- 
       <Routes>
-         <Route > 
-        <Route index element = { <HomePage/>}/>
-        <Route path="Tienda" element ={<StorePage/>}/>
-        <Route path="Nosotros" element ={<AboutPage/>}/>
-         </Route>
-         
-         <Route path="/auth" element={<AuthLayout/>}>
-         <Route path="Login" element={<Login/>} />
-         <Route path="Registro" element={<Register/>} />
-         </Route>
-         
+        {/* --- Rutas Públicas (Sin Layout Compartido, usan StoreLayout internamente) --- */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/Tienda" element={<StorePage />} />
+        <Route path="/Nosotros" element={<AboutPage />} />
+        
+        {/* --- Rutas de Autenticación (Usan AuthLayout) --- */}
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route path="Login" element={<Login />} />
+          <Route path="Registro" element={<Register />} />
+        </Route>
+        
+        {/* --- Rutas de Administración (Usan AdmiLayout) --- */}
+        {/* Nota: Aquí el path="/admin" es el layout y el index es el dashboard */}
+        <Route path="/admin" element={<AdmiLayout />}>
+          <Route index element={<DashboardPage />} />
+          <Route path="gestor-usuarios" element={<UsersPage />} />
+          <Route path="gestor-producto" element={<ProductPage />} />
+        </Route>
 
-         <Route>
-          <Route path="/admin"  element={ <AdmiLayout/>}>
-          <Route index element ={ <DashboardPage/>}/>
-          <Route path="gestor-usuarios" element={<UsersPage/>} />
-          <Route path="gestor-producto" element={<ProductPage/>} />
-          </Route>
-
-          <Route path="*" element={<NotFoundPage/>} />
-         </Route>
-
-
-
+        {/* --- Ruta 404 (Siempre al final) --- */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    
     </AuthProvider>
   );
-
-    
-  
 };
 
 export default App;

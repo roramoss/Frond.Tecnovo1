@@ -1,23 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Importar Link para la navegación
+import { Link, useNavigate } from "react-router-dom"; // Agregamos useNavigate por si acaso
 // Componentes de Layout
-import StoreLayout from "../../layouts/Store.layout";
+import StoreLayout from "../../layouts/Store.layout"; // Componente de Layout
 import Promociones from "../promociones";
 import Nosotros from "../../components/nosotros";
 import Footer from "../../components/footer";
 // Hook de Autenticación
 import useAuth from "../../hooks/auth.hook";
 
+
 const HomePage = () => {
-    // 1. --- HOOKS (TODOS DEBEN IR PRIMERO Y SIN CONDICIONES) ---
+    // 1. --- HOOKS (DEBEN IR PRIMERO) ---
     const {
         auth: { email, _id, permissions },
         isLoading,
-    } = useAuth(); // Hook 1: Lógica de Autenticación
+    } = useAuth();
 
-    const [currentIndex, setCurrentIndex] = useState(0); // Hook 2: Estado del Carrusel
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    // 2. --- DATOS Y FUNCIONES (Antes del useEffect) ---
+    // 2. --- DATOS Y FUNCIONES ---
+    // Rutas de imágenes como strings, sin importaciones.
     const images = [
         'src/assets/promocion1.webp',
         'src/assets/promocion2.webp',
@@ -25,6 +27,17 @@ const HomePage = () => {
         'src/assets/promomomo.webp'
     ];
     
+    // Datos simulados para productos destacados
+    const featuredProducts = [
+        // 🚨 CLAVE: Asegúrate de que estas rutas sean correctas o usa las que se ven en tu imagen (165289, etc.)
+        { id: 1, name: 'Smartphone Pro Max', price: '999.00', image: 'src/assets/product1.webp' },
+        { id: 2, name: 'Smartwatch Serie X', price: '299.00', image: 'src/assets/product2.webp' },
+        { id: 3, name: 'Auriculares Ultra', price: '149.00', image: 'src/assets/product3.webp' },
+    ];
+    
+    // NOTA: Tu captura de pantalla tiene estas rutas: 'src/assets/165289-300-300.png', etc.
+    // Si la versión con 'product1.webp' no funciona, usa las que tienes en el código de la imagen.
+
     const nextImage = () => {
         setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
     };
@@ -33,41 +46,38 @@ const HomePage = () => {
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
     };
 
-    // 3. --- EFECTOS (Automate the carousel) ---
+    // 3. --- EFECTOS ---
     useEffect(() => {
         const interval = setInterval(() => {
             nextImage();
-        }, 5000); // Cambia de imagen cada 5 segundos
+        }, 5000);
 
+        // Limpieza del intervalo
         return () => clearInterval(interval);
-    }, [nextImage]); // Dependencia para la función
+    }, [nextImage]);
 
-    // 4. --- RETORNO CONDICIONAL (Early Return) ---
+    // 4. --- RETORNO CONDICIONAL DE CARGA ---
     if (isLoading) return <div className="min-h-screen flex items-center justify-center text-2xl">Cargando...</div>;
 
-    // 5. --- RENDERIZADO PRINCIPAL ---
+    // 5. --- RENDERIZADO PRINCIPAL DENTRO DEL LAYOUT ---
     return ( 
-        <>
-            <StoreLayout />
-
-            {/* Bloque de Bienvenida Condicional (Moderno) */}
+        // 🛑 TODO EL CONTENIDO VA DENTRO DEL RETURN
+        <StoreLayout> 
+            {/* Bloque de Bienvenida Condicional */}
             {_id ? (
                 // 🟢 Usuario Logueado
                 <div className="flex flex-col items-center justify-center space-y-4 p-8 bg-blue-50 border-b-4 border-blue-500 shadow-md">
+                    {/* ... (Contenido de bienvenida) ... */}
                     <div className="text-3xl font-light text-gray-800">
                         ¡Hola de nuevo! <span className="font-bold text-blue-600">{email}</span>
                     </div>
-
                     <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-6">
-                        
                         <Link 
                             to="/tienda" 
                             className="px-6 py-3 text-xl font-semibold text-white bg-green-500 rounded-lg shadow-lg hover:bg-green-600 transition duration-300 transform hover:scale-105 text-center"
                         >
                             Ver Productos
                         </Link>
-                        
-                        {/* Enlace a Admin (Condicional) */}
                         {permissions && permissions.includes("isAdmin") && (
                             <Link 
                                 to="/admin" 
@@ -91,13 +101,14 @@ const HomePage = () => {
                 </div>
             )}
 
-            {/* 🌎 Sección del Carrusel (Estilos mejorados) */}
+            {/* 🌎 Sección del Carrusel */}
             <section className="relative w-full max-w-7xl mx-auto my-8 overflow-hidden rounded-lg shadow-2xl">
+                {/* ... (Código del carrusel) ... */}
                 <div className="relative">
                     {images.map((image, index) => (
                         <img
                             key={index}
-                            src={image}
+                            src={image} 
                             alt={`Promoción ${index + 1}`}
                             className={`w-full h-96 object-cover transition-opacity duration-500 ${index === currentIndex ? 'opacity-100' : 'opacity-0 absolute top-0 left-0'}`}
                             style={{ display: index === currentIndex ? 'block' : 'none' }}
@@ -118,9 +129,8 @@ const HomePage = () => {
                     ❯
                 </button>
             </section>
-            {/* Fin del Carrusel */}
             
-            {/* 💡 Sección para resaltar una Oferta Única (Elemento con el mismo estilo) */}
+            {/* 💡 Sección para resaltar una Oferta Única */}
             <section className="max-w-7xl mx-auto py-12 px-4">
                 <div className="bg-gradient-to-r from-purple-700 to-indigo-700 p-10 rounded-xl shadow-2xl text-white text-center transform hover:scale-[1.01] transition-transform duration-500">
                     <h2 className="text-4xl font-extrabold mb-3">OFERTA EXCLUSIVA DEL MES</h2>
@@ -133,14 +143,48 @@ const HomePage = () => {
                     </Link>
                 </div>
             </section>
-            {/* Fin de Oferta Única */}
 
+            {/* 🔥 PRODUCTOS DESTACADOS */}
+            <section className="max-w-7xl mx-auto py-16 px-4">
+                <h2 className="text-4xl font-bold text-gray-800 text-center mb-12 border-b-4 border-red-500 pb-3 inline-block mx-auto">
+                    🚀 Productos Destacados
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {featuredProducts.map(product => (
+                        <div 
+                            key={product.id} 
+                            className="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200 transform hover:scale-[1.03] hover:shadow-2xl transition-all duration-300"
+                        >
+                            <div className="h-64 bg-gray-200 flex items-center justify-center p-4">
+                                <img 
+                                    src={product.image} 
+                                    alt={product.name} 
+                                    className="w-full h-full object-contain" 
+                                />
+                            </div>
+
+                            <div className="p-6 text-center">
+                                <h3 className="text-2xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                                <p className="text-3xl font-extrabold text-red-600 mb-4">${product.price}</p>
+                                
+                                <Link
+                                    to={`/tienda/producto/${product.id}`}
+                                    className="block w-full py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 shadow-md transition duration-200"
+                                >
+                                    ¡Comprar Ahora!
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
             <Promociones />
             <br />
             <Nosotros />
             <Footer />
-        </>
+        </StoreLayout> // 🛑 Cierra el Layout aquí
     );
 }
  
